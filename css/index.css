@@ -1,0 +1,275 @@
+
+/* *{
+    box-sizing: border-box;
+} */
+
+/* 版心公用 */
+.container-md{
+    width: 1040px;
+    padding: 0 20px;
+    margin: 0 auto;
+    /* background-color: hotpink; */
+}
+.header-wrap{
+    position: relative;
+}
+
+/* header */
+.header{
+    height: 80px;
+    background-color: rgba(0, 0, 0, .1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* 定位会导致宽度失效，使得背景色块的宽度为文字的宽度 */
+    width: 100%;
+    z-index: 99;
+}
+.logo{
+    width: 100px;
+    height: 37px;
+    padding-top: 22px;
+    /* 不用margin-top是因为传递 */
+    float: left;
+}
+.nav{
+    float: right;
+}
+.nav li{
+    float: left;
+    line-height: 80px;
+    font-size: 16px;
+    position: relative;
+}
+.nav li a{
+    color: white;
+    padding: 0 20px;
+}
+.layer{
+    width: 240px;
+    height: 204px;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .1);
+    display: none;
+}
+.layer::before{
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+    position: absolute;
+    top: -16px;
+    left: 26px;
+}
+.nav li:hover .layer{
+    display: block;
+}
+.txt li a .title{
+    width: 200px;
+    height: 28px;
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+}
+.txt li a .desc{
+    width: 200px;
+    height: 20px;
+    color: grey;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+/* 文字标题部分：header-txt */
+.header-txt{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    margin-top: -72px;
+    z-index: 99;
+}
+.font-logo{
+    font-size: 67px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    margin-bottom: 20px;
+    animation: font-logo 5s linear infinite;
+}
+@keyframes font-logo{
+    0%{
+        color: #000;
+    }
+    100%{
+        color: #fff;
+    }
+}
+.use-btn{
+    display: inline-block;
+    padding: 14px 26px;
+    background-color: rgba(0, 0, 0, .6);
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 6px;
+    letter-spacing: 2.2px;
+    /* 字符间的像素 */
+}
+.use-btn:hover{
+    background: rgba(0, 0, 0, .8);
+}
+
+
+/* 轮播图 */
+html,
+body,
+.swiper-container,
+.swiper-wrapper,
+.swiper-slide img{
+    width: 100%;
+    height: 100%;
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; 
+    swiper中设置了z-index为1
+    */
+}
+
+/* 广告 */
+.news-ad{
+    background-color: rgba(0, 0, 0, .4);
+    width: 100%;
+    padding: 10px 0;
+    /* height: 40px;
+    line-height: 40px; */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    /* font-size: 0;
+    去掉行内块之间的默认间距
+    */
+}
+.news-ad .news{
+    font-size: 12px;
+    line-height: 18px;
+    color: white;
+    /* float: left; */
+    display: inline-block;
+    padding: 0 8px;
+    background:linear-gradient(to bottom,#ec614f 0%,#ff2e2e 100%);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2);
+    border-radius: 4px;
+}
+.news-ad .headline-text{
+    color: white;
+    display: inline-block;
+    font-size: 16px;
+}
+
+/* 四等分广告图 */
+.heros{
+    margin-left: -2px;
+    border-top: 2px solid #fff;
+}
+.hero a{
+    width: 25%;
+    height: 260px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    float: left;
+    border-left: 2px solid #fff;
+    box-sizing: border-box;
+    font-size: 24px;
+    color:#fff;
+    text-align: center;
+    padding-top: 37px;
+}
+
+
+/* 三等分广告位 */
+.meta-links{
+    width: 33.33%;
+    float: left;
+    padding: 45px 0;
+}
+.meta-links .icon{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    vertical-align: middle;
+}
+.meta-links .txt{
+    display: inline-block;
+    /* 不用浮动是因为要使用text-align居左/居中/居右 */
+    vertical-align: middle;
+    text-align: left;
+}
+.meta-links:nth-child(2){
+    text-align: center;
+}
+.meta-links:nth-child(3){
+    text-align:right;
+}
+
+
+/* ipad适配 */
+@media screen and (max-width:1080px){
+    .container-md{
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .nav{
+        display: none;
+    }
+    .hero a{
+        width: 50%;
+        margin-bottom: 2px;
+    }
+}
+
+/* 手机端适配 */
+@media screen and (max-width:640px){
+    .font-logo{
+        font-size: 45px;
+    }
+    .swiper-slide img{
+        height: 546px;
+        background-size: contain;
+        background-position: center;
+    }
+    .headline-text{
+        width: 80%;
+    }
+    .news-ad .news{
+        vertical-align: 14px;
+        margin-right: 8px;
+    }
+    .hero a{
+        width: 100%;
+    }
+    .meta-links{
+        width: 100%;
+        padding: 20px 0;
+    }
+    .meta-links:nth-child(2)
+    {
+        text-align: left;
+    }
+    .meta-links:nth-child(3){
+        text-align: left;
+    }
+}
